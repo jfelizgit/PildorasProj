@@ -7,7 +7,7 @@ from servicios.views import servicios
 
 urlpatterns = [
     path('', home, name='Home'),
-    path('tienda', tienda, name='Tienda'),
+    
 
 ]
 # URL para ver las imagenes del server
