@@ -9,8 +9,12 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
+from distutils.log import ERROR
+from logging import WARNING
 import os.path
 from pathlib import Path
+from sre_constants import SUCCESS
+from django.contrib.messages import constants as err_mess
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,6 +44,9 @@ INSTALLED_APPS = [
     'blog',
     'contacto',
     'tienda',
+    'carro',
+    'autenticacion',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -65,6 +72,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'carro.context_processor.importe_total_carro',
             ],
         },
     },
@@ -143,3 +151,13 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'artelec10@gmail.com'
 EMAIL_HOST_PASSWORD = ''
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+MESSAGE_TAGS ={
+    err_mess.DEBUG: 'debug',
+    err_mess.INFO: 'info',
+    err_mess.SUCCESS: 'success',
+    err_mess.WARNING: 'warning',
+    err_mess.ERROR: 'danger',
+}

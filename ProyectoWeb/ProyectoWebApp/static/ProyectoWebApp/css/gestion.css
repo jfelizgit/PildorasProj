@@ -293,3 +293,8 @@ margin: 10px auto;
 border-radius: 5px;
 padding: 1px 0px;
 }
+
+/* replaces hints color */
+.text-muted{
+  color: #dae0e5 !important;
+}
